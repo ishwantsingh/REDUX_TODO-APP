@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Todo from "./Todo";
 import {
   completeTodo,
@@ -7,32 +7,20 @@ import {
 
 import { connect } from "react-redux";
 
-// export class TodoList extends Component {
-//   render() {
-//     return (
-//       <div className="todo-list">
-//         <div>
-//           {this.props.todos.map(todo => (
-//             <Todo key={todo.id} todo={this.props.todo} />
-//           ))}
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
 export class TodoList extends React.Component {
   render() {
     return (
       <div>
-        <h3>My Todos</h3>
+        <h1>My Todos:</h1>
         <div>
+          {/* {console.log(this.props)} */}
           {this.props.todos.map(todo => (
             <Todo
               key={todo.id}
+              id={todo.id}
               todo={todo}
-              completeTodo={completeTodo}
-              inCompleteTodo={inCompleteTodo}
+              completeTodo={this.props.completeTodo}
+              inCompleteTodo={this.props.inCompleteTodo}
             />
           ))}
         </div>
@@ -42,7 +30,7 @@ export class TodoList extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
   return { todos: state };
 }
 export default connect(
