@@ -9,7 +9,7 @@ import reducer from "./redux-components/reducers";
 
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() //used for redux devtools
 );
 
 ReactDOM.render(
